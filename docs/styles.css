@@ -17,9 +17,27 @@ margin: 5px 5px;
 
 ul {
     border-radius: 25px;
-    border: 2px solid #002147;
+    border: 5px solid #002147;
     padding: 0px 0px 2px 20px;  /* top right bottom left*/
     /*width: 200px;
     height: 150px; */
 }
+
+@media (min-width: 500px) {
+.container {
+width:60%;
+left:20%;
+position:relative;
+}
+}
+
+@media (max-width: 500px) {
+.container {
+width:90%;
+left:5%;
+position:relative;
+}
+}
+
+
 
