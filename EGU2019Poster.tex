@@ -1,4 +1,4 @@
-\documentclass[landscape,24pt, a0paper,colspace=10mm,blockverticalspace=12mm]{tikzposter}
+\documentclass[landscape,24pt, a0paper,colspace=8mm,blockverticalspace=8mm]{tikzposter}
 
 % Bibliography
 %\usepackage[backend=bibtex,firstinits=true,sorting=none, doi=false,isbn=false,url=false]{biblatex}
@@ -11,6 +11,9 @@
 \usepackage[backend=bibtex,giveninits=true,sorting=none, doi=false,isbn=false,url=false,maxnames=1,uniquelist=false]{biblatex}
 \renewbibmacro{in:}{}
 \DeclareFieldFormat*{title}{#1} 
+
+% For shifting parts of the text left or right
+\usepackage{changepage}
 
 % For preventing hyphenation
 \usepackage{hyphenat}
@@ -94,6 +97,9 @@
 \definecolor{eqnLabelGray}{rgb}{0.3, 0.3, 0.3}
 \definecolor{dividingLines}{rgb}{0.2, 0.2, 0.2}
 
+\definecolor{keyPoint}{rgb}{0.0, 0.13, 0.28} % oxford blue
+
+\newcommand{\keyPoint}[1]{\textcolor{darkpowderblue}{#1}}
 
 \newcommand{\figureTitle}[1]{\color{captionTitle}{\textbf{#1}} }
 \newcommand{\figureCaption}[1]{\color{captiongray}{#1} }
@@ -235,8 +241,8 @@ innertopmargin=0em]{leftbot}
         boxrule=1.6mm}
 
 %Title text and graphics
-\title{\parbox{\linewidth}{\centering Convection, phase change and solute transport in mushy sea ice}} %with Adaptive Mesh Refinement
-\titlegraphic{ \includegraphics[height=4cm]{figures/AGU2018.eps} %TODO: update QR code
+\title{\parbox{\linewidth}{\centering Convection, phase change, and solute transport in mushy sea ice}} %with Adaptive Mesh Refinement
+\titlegraphic{ \includegraphics[height=4cm]{figures/EGU2019Website.eps} %TODO: update QR code
 \includegraphics[height=4cm]{figures/Oxford.eps}
 \includegraphics[height=4cm]{figures/Berkeley_Lab_Logo_Small.eps} 
  \hfill 
@@ -265,45 +271,39 @@ innertopmargin=0em]{leftbot}
   mark=at position .5 with {\arrow[scale=2]{latex}}},postaction={decorate}}}
 
 
-
-
-
 \begin{document}
-
 
 \maketitle
 
 \begin{columns} 
 
-\column{0.21}
+\column{0.22}
 
 \block{Motivation}{
 \begin{itemize}[leftmargin=0.4cm]
-    %\item 22 million square kilometres of sea ice form every year \cite{fetterer-02}
     \item Sea ice is a mushy layer of ice crystals and brine.
     \item Dense brine drains during ice formation, whilst some brine is trapped within sea ice
     \item Observations (Fig. 1) and 1-D simulations suggest that warming sea ice may release some of this brine
-    \item \textbf{Our goal: investigate this mechanism} using 2-D numerical simulations
+    \item \textbf{Our goal: investigate this mechanism} using \mbox{2-D} numerical simulations
 \end{itemize}
 \vspace{-1em}
 \noindent
-\begin{minipage}[t]{\linewidth}
+
+
+\begin{adjustwidth}{-1em}{0em}
+
 \begin{tikzfigure}
 \label{fig:widellObs}
 \begin{tikzpicture}
 
-\node[anchor=north west] (fig2) at (0,0) {\includegraphics[width=1.0\linewidth, trim={0.0cm, 0.0cm, 0.0cm, 0.0cm}, clip]{figures/widellfig1combined.png} };
-
-%\node[anchor=north] (phaseDiagram) at ([yshift=0.0cm]fig2.south) {\includegraphics[width=\linewidth, trim={0.0cm, 0.0cm, 0.0cm, 0.0cm}, clip]{figures/widellfig1f.png} };
-
-%\node[anchor=north west] (fig2label) at (fig2.north west) {(a)};
-
-%\node[anchor=north west] (fig1label) at ([yshift=0.0cm]phaseDiagram.north west) {(b)};
+\node[anchor=north west] (fig2) at (0,0) {\includegraphics[width=0.98\linewidth, trim={0.0cm, 0.0cm, 0.0cm, 0.0cm}, clip]{figures/widdellFig1TaToFsTimeCropped.png} };
 
 \end{tikzpicture}
 \end{tikzfigure}
-\figureTitle{Fig. 1:} \figureCaption{Observed atmospheric temperature (top) and ice-ocean salt flux (bottom) from warming sea ice \cite{Widell2006}. }
-\end{minipage}
+\end{adjustwidth}
+\figureTitle{Fig. 1:} \figureCaption{\cite{Widell2006} observed intense salt fluxes $F_s$ below sea ice coincident with changes to the temperature in the atmosphere ($T_a$) and ocean ($T$).}
+
+
 
 
 }
@@ -327,7 +327,8 @@ innertopmargin=0em]{leftbot}
 
 \end{tikzpicture}
 \end{tikzfigure}
-\figureTitle{Fig. 2:} \figureCaption{(a) Sea ice is a porous mixture of solid ice crystals (white) and liquid brine (dark) \cite{Eicken2000}. (b) Trajectory ($\textcolor{red}{\rightarrow}$) of a solidifying salt water parcel through the phase diagram. As the temperature $T_l$ decreases, more ice forms and the residual brine salinity $S_l$ increases making the fluid denser, which can drive convection. Using a linear approximation for the liquidus curve, the freezing point is $T_f(S_l) = -0.1 S_l$. }
+\figureTitle{Fig. 2:} \figureCaption{(a) Sea ice is a porous mixture of solid ice crystals (white) and liquid brine (dark) \cite{Eicken2000}. \\
+(b) Trajectory ($\textcolor{red}{\rightarrow}$) of a solidifying salt water parcel through the phase diagram. As the temperature $T$ decreases, more ice forms and the residual brine salinity $S_l$ increases making the fluid denser, which can drive convection. Using a linear approximation for the liquidus curve, the freezing point is $T_f(S_l) = -0.1 S_l$. }
 %Below the eutectic ($T_e, S_e$) = (-21.1$^\circ$, 233) the system is entirely solid.} %making the fluid denser which can lead to convection
 %the resulting dense fluid can drive convection
 %Eicken et. al. (2000).
@@ -357,25 +358,11 @@ Solve (1)-(4) using Chombo finite volume toolkit:
 
 
 
-\block[bodyoffsety=0mm, bodyverticalshift=0mm]{}{ %Need to specify some options to get rid of the title space
-This work was funded by NERC and a travel grant from the Royal Society.
-{
-\fontsize{16}{15}\selectfont 
-\renewcommand\refname{\vskip -2.5cm}
-%\bibliography{bibliography}
-\renewcommand*{\bibfont}{\scriptsize}
-\printbibliography
-}
-\vspace{-0.75cm}
-}
-
-%\column{0.55}
-%\column{0.42}
-\column{0.79}
 
 
+\column{0.78}
 
-%\block[bodyoffsety=0mm]{}{
+
 \block[bodyoffsety=0em]{}{
 
 \vspace{-2.6em}
@@ -383,64 +370,204 @@ This work was funded by NERC and a travel grant from the Royal Society.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Start experiment introduction
 % sharp corners = uphill
-\begin{tcolorbox}[boxsep=5mm, % internal spacing
-width=0.5\linewidth+0.5em,  nobeforeafter, sharp corners, rounded corners=northwest,
+%\begin{tcolorbox}[boxsep=5mm, % internal spacing
+%width=0.5\linewidth+0.5em,  nobeforeafter, sharp corners, rounded corners=northwest,
+%        colback=blue!5,  box align=top, 
+%        colframe=oxfordblue, 
+%        before skip=0.0em,
+%        left skip=-0.9em,
+%        boxrule=1.5mm, extrude top by=0.7em, arc=6mm,
+%        height=8em]
+        \begin{tcolorbox}[boxsep=5mm, % internal spacing
+width=0.5\linewidth+0.8em,  nobeforeafter, 
+sharp corners, 
+%rounded corners=north,
+ rounded corners=northwest,
         colback=blue!5,  box align=top, 
         colframe=oxfordblue, 
-        %before skip=0.0em, after skip=0.0em, 
         before skip=0.0em,
         left skip=-0.9em,
         boxrule=1.5mm, extrude top by=0.7em, arc=6mm,
-        height=7em]
+        height=9em]
 \vspace{-1.0em}
-\LARGE \textbf{The experiment} \\
-\large  Water of initial salinity $S_0=30\,\mathrm{g}/ \mathrm{kg}$ and temperature $-2.9^\circ$C is frozen from above in a Hele-Shaw cell (plate separation $d=0.1$mm). We assume $K_0=10^{-10}\,\mathrm{m}^2$, and fix the atmospheric temperature $T_a = -10^\circ$C. After $\sim 0.5$m of ice growth, we impose different warming scenarios.
+%\begin{minipage}[t]{0.5\linewidth}
+{\LARGE \textbf{The experiment:}} \\
+We consider 2-D simulations in a Hele-Shaw cell of width $0.5$m, height $1$m, and plate separation $d$. Water of initial salinity $S_0=30\,\mathrm{g}/ \mathrm{kg}$ and temperature $T_f(S_o) + 0.2^\circ$C is initially frozen from above by applying a fixed atmospheric temperature $T_a = -10^\circ$C. We assume $K_0=10^{-9}\,\mathrm{m}^2$, and initially set $d=0.5$mm to restrict thermal convection in the underlying liquid during growth. After $\sim0.5$m of ice growth, we increase $d$ to $2$mm and spin up simulations for 2 days before considering different warming scenarios.
+%\end{minipage} \hfill \textcolor{dividingLines}{\vline  width 1pt} \hfill
+%\begin{minipage}[t]{0.16\linewidth}
+%\vspace{-2.0em}
+%\begin{tikzfigure}
+%\begin{tikzpicture}
+%\node[anchor=north west] (2d) at (0,0) {\includegraphics[ trim={0.0cm, 0.0cm, 0.0cm, 0.0cm}, clip]{figures/prePerturbationSmall.png}};
+%\end{tikzpicture}
+%\end{tikzfigure}
+%\end{minipage} \hfill
+%\begin{minipage}[t]{0.32\linewidth}
+%\vspace{0.0em}
 
-\end{tcolorbox} \hfill
-\begin{tcolorbox}[boxsep=5mm, width=0.5\linewidth+0.5em,  nobeforeafter, sharp corners, rounded corners=northeast,
+%\end{minipage} 
+
+\end{tcolorbox} % \hfill
+%% Summary
+\begin{tcolorbox}[boxsep=5mm, width=0.5\linewidth+0.8em,  nobeforeafter, sharp corners, rounded corners=northeast,
         colback=red!5, box align=top, 
         colframe=red!60!black,  boxrule=1.5mm, extrude top by=0.7em, arc=6mm,
-        height=7em] %before skip=-2.5em, after skip=-2.5em, left skip=-1.055em,
+        height=9em, left skip=0.5em]
 
 \vspace{-1.0em}
 \LARGE \textbf{Summary}
 \large 
 \begin{itemize}
-\item \textbf{...} 
-\item \textbf{...} 
-\item \textbf{...}
+\item \textbf{We observe significant desalination events from warming sea ice in a 2-D model, with similar magnitude and timing to field observations.}
+\item \textbf{Following basal melting, desalination can be caused by fresh melt water rising through brine channels.} 
+%\item \textbf{...}
 \end{itemize}
 \end{tcolorbox}
 % End summary
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\vspace{0.0em}
+% Nudge content up a bit
+\vspace{-0.1em}
+
+
+\begin{minipage}[t]{0.32\linewidth}
+\vspace{1.0em}
+{\LARGE \textcolor{oxfordblue}{\hspace{0.0em}\textbf{Full depth desalination}} }
+\vspace{1em} \\
+\noindent \figureTitle{Fig. 7 ($\rightarrow$):} Porosity $\chi$ in the ice, salinity $S_l$ in the underlying  liquid, and streamfunction (solid black logarithmically spaced contours: CW, dashed: ACW) during basal melting. Remnant brine channels are visible throughout the ice during initial growth. Subsequently the ocean temperature is increased to $T_o=T_f(S_o) + 1.5^{\circ}\mathrm{C}$ and a layer of buoyant water forms due to basal melting, whilst internal melting within the ice gradually increases the porosity. After 32 days a period of strong convection is initiated throughout the ice. Melt water rises through previously active brine channels and sinks through the rest of the ice.
+
+%Our domain is horizontally periodic, with an open bottom boundary and an impermeable, isothermal, top boundary.
+\end{minipage} \hfill
+\begin{minipage}[t]{0.7\linewidth}
+\begin{tikzfigure}
+\begin{tikzpicture}
+\node[anchor=north west] (diags) at (0,0) {\includegraphics[ trim={1.0cm, 0.0cm, 0.0cm, 0.0cm}, clip]{figures/desalinationEvent-small.png} };
+\end{tikzpicture}
+\end{tikzfigure}
+\end{minipage}
+
+\vspace{-2pt}
+\begin{minipage}{\linewidth + 1.5em}
+\hspace{-0.75em}\textcolor{dividingLines}{\rule{\linewidth}{3pt}}
+\end{minipage}
+\vspace{-3.0em} 
 
  
-\begin{tcolorbox}[width=0.5\linewidth+0.75em, nobeforeafter, box align=top, 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Case 1
+\begin{tcolorbox}[width=0.5\linewidth+0.8em, nobeforeafter, box align=top, 
 bottomrule=0pt, 
 colframe=white, colback=white,  boxrule=0mm,
-left skip=0.75pt,  left=0.0em, top=0.5em, standard jigsaw, opacityback=0]
+left skip=-1.0em,  left=0.0em, top=0.5em, right=0.5em,
+bottom=0.4em,
+ standard jigsaw, opacityback=0]
 
+{\LARGE \textcolor{oxfordblue}{\hspace{1em}\textbf{Case 1: Atmospheric warming}}} 
+\vspace{-1.5em}
 
-{\LARGE \textcolor{oxfordblue}{\textbf{Case 1: Basal warming}}}
+\begin{tikzfigure}
+\begin{tikzpicture}
 
-\vspace{51em}
+\node[anchor=north west] (diags) at (0,0) {\includegraphics[trim={0.0cm, 0.0cm, 0.0cm, 0.0cm}, clip]{figures/SurfaceWarmingDiagnosticsNew.pdf} };
+
+\node[anchor=north west] (timeseries2) at ([xshift=-1em,yshift=0]diags.north east) {\includegraphics[ trim={0.0cm, 0.0cm, 0.0cm, 0.0cm}, clip]{figures/SurfaceWarming-3TimeSeries-small.jpg}};
+
+\node[anchor=north](b) at (timeseries2.north) {$T_a = -3^\circ$C};
+
+\node[anchor=north](desalination) at ([xshift=-9.0em, yshift=5.0em]diags.south east) {\normalsize Desalination events};
+
+\draw[->, line width=1mm](desalination.west) -- ([xshift=5.9em,yshift=3.7em]diags.south west);
+\draw[->, line width=1mm](desalination.west) -- ([xshift=7.1em,yshift=5.6em]diags.south west);
+\draw[->, line width=1mm](desalination.west) -- ([xshift=10.0em,yshift=5.4em]diags.south west);
+\end{tikzpicture}
+\end{tikzfigure}
+
+\vspace{-2.0em}
+
+\begin{minipage}[t]{1.0em} \end{minipage} \hfill % add some padding
+\begin{minipage}[t]{0.39\linewidth}
+\figureTitle{Fig. 3 ($\uparrow$):} Vertical fluxes of heat $F_h$ and salt $F_s$ at $z=0.3$m in response to increased atmospheric temperature (see legend).  %Intense desalination events can be seen for $T_a=-3^\circ$C (at $t=$2 days) and $-2^\circ$C (at $t=4$ and $8$ days). After $\sim 15$ days the warming ice stops rejecting significant quantities of salt. 
+\keyPoint{Short intense desalination events occur after warming.} After $\sim 15$ days the warming ice stops rejecting significant quantities of salt. 
+\end{minipage} \hfill
+\begin{minipage}[t]{0.48\linewidth}
+\figureTitle{Fig. 4 ($\uparrow$):} Vertical profiles for $T_a = -3^\circ$C. Top panel: minimum vertical velocity, middle panel: change in horizontally-averaged porosity, bottom panel: change in horizontally-averaged bulk salinity. The sea ice interface is indicated by a white line (top panel) or black line (lower panels). \keyPoint{Atmospheric warming increases the ice porosity, which allows salt to drain through the entire depth of ice.}
+\end{minipage} 
+%\hfill
+%\begin{minipage}[t]{0.0em} \end{minipage}
+
 
 \end{tcolorbox} \hfill \textcolor{dividingLines}{\vline  width 3pt} \hfill
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Case 2
 \begin{tcolorbox}[width=0.5\linewidth+0.5em, nobeforeafter, box align=top, 
-top=0.5em,  left=1em,
+top=0.5em,  left=-0.15em, right=0.5em,
 boxrule=0mm, colback=white, colframe=white,  standard jigsaw, opacityback=0]
 
 
-{\LARGE \textcolor{oxfordblue}{\textbf{Case 2: Atmospheric warming followed by basal warming}} }
-\vspace{10em}
+{\LARGE \textcolor{oxfordblue}{\hspace{1em}\textbf{Case 2: Basal warming}} }
+\vspace{-1.5em}
+
+%\begin{minipage}[t]{0.48\linewidth}
+\begin{tikzfigure}
+\begin{tikzpicture}
+
+\node[anchor=north west] (diags) at (0,0) {\includegraphics[ trim={0.0cm, 0.0cm, 0.0cm, 0.0cm}, clip]{figures/BasalWarmingDiagnosticsNew.pdf} };
+
+\node[anchor=north west] (timeseries2) at ([xshift=-1.5em,yshift=0]diags.north east) {\includegraphics[ trim={0.2cm, 0.0cm, 0.5cm, 0.0cm}, clip]{figures/BasalWarming-1p5TimeSeries-small.jpg}};
+
+\node[anchor=north](b) at (timeseries2.north) {$T_o = T_f(S_o) + 1.5^\circ$C};
+
+\node[anchor=north](desalination) at ([xshift=10.0em, yshift=5.0em]diags.south west) {\normalsize Desalination events};
+
+\draw[->, line width=1mm]([xshift=-2.0em]desalination.north) -- ([xshift=7.3em,yshift=6.6em]diags.south west);
+\draw[->, line width=1mm](desalination.east) -- ([xshift=16.5em,yshift=5.5em]diags.south west);
+\draw[->, line width=1mm](desalination.east) -- ([xshift=19.0em,yshift=3.7em]diags.south west);
+
+\node[anchor=north](desalination2) at ([xshift=8.0em, yshift=5.0em]timeseries2.south west) {\normalsize \textcolor{red}{Desalination event}};
+% \draw ([xshift=-8.5em,yshift=1em]timeseries2.east) ellipse (1cm and 8cm);
+\draw [rounded corners=0.5cm, red, line width=1mm] ([xshift=2.5em,yshift=4em]timeseries2.south) rectangle ++(1.8,15.5);
+\draw[->, line width=1mm, red](desalination2.east) -- ([xshift=2em,yshift=4.5em]timeseries2.south);
+
+
+
+\end{tikzpicture}
+\end{tikzfigure}
+\vspace{-2.0em}
+\begin{minipage}[t]{1.0em} \end{minipage} \hfill % add some padding
+\begin{minipage}[t]{0.39\linewidth}
+\figureTitle{Fig. 5 ($\uparrow$):}  Vertical heat $F_h$ and salt $F_s$ fluxes as in Fig. 4 but for simulations with an increased oceanic temperature $T_o$. Salt fluxes are typically positive due to the downward transport of fresh melt water. However, for $T_o>T_f(S_o) + 0.5^\circ$C we observe short intense bursts of negative salt fluxes.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.47\linewidth}
+\figureTitle{Fig. 6 ($\uparrow$):}  Vertical profiles as in Fig. 5, but for oceanic warming with $T_o=T_f(S_o) + 1.5^\circ$C.  An increase in porosity permits stronger convection through a deeper layer at the base of the ice. However \keyPoint{a convectively stable layer of buoyant melt water forms below the ice, preventing rejected salt from mixing with the underlying ocean except in the case of intense desalination events.}
+\end{minipage}
 
 \end{tcolorbox}
-\vspace{-0.9em} } % end big main block
+
+
+
+
+%\vspace{-2em}
+
+%%%%%%%%%%%%%%%%
+% Summary
+%\begin{tcolorbox}[boxsep=5mm, width=\linewidth+1.85em,  nobeforeafter, 
+%sharp corners, rounded corners=south,
+  %      colback=red!5, box align=top, 
+     %   colframe=red!60!black,  boxrule=1.6mm, extrude bottom  by=0.1em, arc=6mm,
+       % before skip=-1em,
+       % height=3em]
+
+%\vspace{0.1em}
+%\LARGE \textbf{Summary:} {\Large We observe significant desalination events from warming sea ice in a 2-D model, with similar magnitude and timing to field observations.}
+%\end{tcolorbox}
+
+\vspace{-0.9em} } 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% end big main block
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{subcolumns}  
-\subcolumn{0.77} 
+\subcolumn{0.75} 
 
 
 
@@ -449,6 +576,7 @@ boxrule=0mm, colback=white, colframe=white,  standard jigsaw, opacityback=0]
 
 \begin{minipage}[t]{0.49\linewidth}
 Continuous equations for conservation of momentum (1), mass (2), salt~\eqref{eq:salt-cons} and energy~\eqref{eq:energy-cons} are found by averaging over lengths greater than the pore scale of sea ice \cite{Worster1991,LeBars2006}. In a narrow Hele-Shaw cell, the momentum equation is well approximated by Darcy's law everywhere. 
+\vspace{0.2em}
 \begin{align}
 %\rho_0  \frac{\partial \mathbf{U}}{\partial \tau} + \rho_0 \mathbf{U} \cdot \nabla \left( \frac{\mathbf{U}}{\chi} \right) &= - \chi \nabla p + \eta \nabla^2 \mathbf{U} + \chi \rho_l \mathbf{g} - \frac{\eta \chi}{K(\chi)} \mathbf{U},
      \mathbf{U} = -\frac{K(\chi)}{\eta} \left(\nabla p - \rho_l \mathbf{g} \right), & \quad \quad   \nabla \cdot \mathbf{U} = 0, \tag{1, 2}  \\
@@ -474,16 +602,40 @@ Continuous equations for conservation of momentum (1), mass (2), salt~\eqref{eq:
 }
  
 
-\subcolumn{0.23}
+\subcolumn{0.25}
  
  \block{Future Work}
 {
 \begin{itemize}
-\item Consider forcing from reanalysis data, rather than the idealised scenarios considered here.
+\item Consider forcing from reanalysis data, rather than idealised scenarios.
 \item Investigate sensitivity of results to the Hele-Shaw cell gap width.
-\item Write PhD thesis.
 \end{itemize}
+\vspace{5pt}
+\rule{\linewidth}{.4pt}
+\vspace{5pt} \\
+This work was funded by NERC and a travel grant from the Royal Society.
+{
+\fontsize{16}{15}\selectfont 
+\renewcommand\refname{\vskip -2.5cm}
+
+\renewcommand*{\bibfont}{\scriptsize}
+\printbibliography
 }
+
+}
+
+
+%\block[bodyoffsety=0mm, bodyverticalshift=0mm]{}{ %Need to specify some options to get rid of the title space
+%This work was funded by NERC and a travel grant from the Royal Society.
+%{
+%\fontsize{16}{15}\selectfont 
+%\renewcommand\refname{\vskip -2.5cm}
+%
+%\renewcommand*{\bibfont}{\scriptsize}
+%\printbibliography
+%}
+%\vspace{-0.75cm}
+%}
 
  
 \end{subcolumns}

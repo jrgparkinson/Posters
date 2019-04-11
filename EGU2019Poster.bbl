@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex version 2.5 $
+% $ biblatex bbl format version 3.0 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -16,172 +16,194 @@
   {}
 \endgroup
 
-\entry{Widell2006}{article}{}
-  \name{author}{3}{}{%
-    {{}%
-     {Widell}{W.}%
-     {Karolina}{K.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Fer}{F.}%
-     {Ilker}{I.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Haugan}{H.}%
-     {Peter~M.}{P.~M.}%
-     {}{}%
-     {}{}}%
-  }
-  \keyw{http://dx.doi.org/10.1029/2006GL026262, doi:10.102}
-  \strng{namehash}{WK+1}
-  \strng{fullhash}{WKFIHPM1}
-  \verb{doi}
-  \verb 10.1029/2006GL026262
-  \endverb
-  \field{isbn}{1944-8007}
-  \field{issn}{00948276}
-  \field{number}{12}
-  \field{pages}{1\bibrangedash 5}
-  \field{title}{{Salt release from warming sea ice}}
-  \field{volume}{33}
-  \field{journaltitle}{Geophysical Research Letters}
-  \field{year}{2006}
-\endentry
+\datalist[entry]{none/global//global/global}
+  \entry{Widell2006}{article}{}
+    \name{author}{3}{}{%
+      {{hash=WK}{%
+         family={Widell},
+         familyi={W\bibinitperiod},
+         given={Karolina},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=FI}{%
+         family={Fer},
+         familyi={F\bibinitperiod},
+         given={Ilker},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=HPM}{%
+         family={Haugan},
+         familyi={H\bibinitperiod},
+         given={Peter\bibnamedelima M.},
+         giveni={P\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+    }
+    \keyw{http://dx.doi.org/10.1029/2006GL026262, doi:10.102}
+    \strng{namehash}{WK+1}
+    \strng{fullhash}{WKFIHPM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1029/2006GL026262
+    \endverb
+    \field{isbn}{1944-8007}
+    \field{issn}{00948276}
+    \field{number}{12}
+    \field{pages}{1\bibrangedash 5}
+    \field{title}{{Salt release from warming sea ice}}
+    \field{volume}{33}
+    \field{journaltitle}{Geophysical Research Letters}
+    \field{year}{2006}
+  \endentry
 
-\entry{Eicken2000}{article}{}
-  \name{author}{5}{}{%
-    {{}%
-     {Eicken}{E.}%
-     {Hajo}{H.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Bock}{B.}%
-     {C.}{C.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Wittig}{W.}%
-     {R.}{R.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Miller}{M.}%
-     {H.}{H.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Poertner}{P.}%
-     {H.~O.}{H.~O.}%
-     {}{}%
-     {}{}}%
-  }
-  \keyw{Chukchi Sea, Crystal growth, Image analysis, Nuclear magnetic
+  \entry{Eicken2000}{article}{}
+    \name{author}{5}{}{%
+      {{hash=EH}{%
+         family={Eicken},
+         familyi={E\bibinitperiod},
+         given={Hajo},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=BC}{%
+         family={Bock},
+         familyi={B\bibinitperiod},
+         given={C.},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=WR}{%
+         family={Wittig},
+         familyi={W\bibinitperiod},
+         given={R.},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=MH}{%
+         family={Miller},
+         familyi={M\bibinitperiod},
+         given={H.},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=PHO}{%
+         family={Poertner},
+         familyi={P\bibinitperiod},
+         given={H.\bibnamedelima O.},
+         giveni={H\bibinitperiod\bibinitdelim O\bibinitperiod},
+      }}%
+    }
+    \keyw{Chukchi Sea, Crystal growth, Image analysis, Nuclear magnetic
   resonance, Pore structure, Sea ice}
-  \strng{namehash}{EH+1}
-  \strng{fullhash}{EHBCWRMHPHO1}
-  \verb{doi}
-  \verb 10.1016/S0165-232X(00)00016-1
-  \endverb
-  \field{isbn}{0165-232X/00{\textbackslash}r00948276}
-  \field{issn}{0165232X}
-  \field{number}{3}
-  \field{pages}{207\bibrangedash 225}
-  \field{title}{{Magnetic resonance imaging of sea-ice pore fluids: Methods and
-  thermal evolution of pore microstructure}}
-  \field{volume}{31}
-  \field{journaltitle}{Cold Regions Science and Technology}
-  \field{year}{2000}
-\endentry
+    \strng{namehash}{EH+1}
+    \strng{fullhash}{EHBCWRMHPHO1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1016/S0165-232X(00)00016-1
+    \endverb
+    \field{isbn}{0165-232X/00{\textbackslash}r00948276}
+    \field{issn}{0165232X}
+    \field{number}{3}
+    \field{pages}{207\bibrangedash 225}
+    \field{title}{{Magnetic resonance imaging of sea-ice pore fluids: Methods
+  and thermal evolution of pore microstructure}}
+    \field{volume}{31}
+    \field{journaltitle}{Cold Regions Science and Technology}
+    \field{year}{2000}
+  \endentry
 
-\entry{Martin2008}{article}{}
-  \name{author}{3}{}{%
-    {{}%
-     {Martin}{M.}%
-     {D.~F.}{D.~F.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Colella}{C.}%
-     {Phillip}{P.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Graves}{G.}%
-     {Daniel}{D.}%
-     {}{}%
-     {}{}}%
-  }
-  \keyw{Adaptive mesh refinement, Incompressible flow, Projection methods}
-  \strng{namehash}{MDF+1}
-  \strng{fullhash}{MDFCPGD1}
-  \verb{doi}
-  \verb 10.1016/j.jcp.2007.09.032
-  \endverb
-  \field{issn}{00219991}
-  \field{number}{3}
-  \field{pages}{1863\bibrangedash 1886}
-  \field{title}{{A cell-centered adaptive projection method for the
+  \entry{Martin2008}{article}{}
+    \name{author}{3}{}{%
+      {{hash=MDF}{%
+         family={Martin},
+         familyi={M\bibinitperiod},
+         given={D.\bibnamedelima F.},
+         giveni={D\bibinitperiod\bibinitdelim F\bibinitperiod},
+      }}%
+      {{hash=CP}{%
+         family={Colella},
+         familyi={C\bibinitperiod},
+         given={Phillip},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=GD}{%
+         family={Graves},
+         familyi={G\bibinitperiod},
+         given={Daniel},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \keyw{Adaptive mesh refinement, Incompressible flow, Projection methods}
+    \strng{namehash}{MDF+1}
+    \strng{fullhash}{MDFCPGD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1016/j.jcp.2007.09.032
+    \endverb
+    \field{issn}{00219991}
+    \field{number}{3}
+    \field{pages}{1863\bibrangedash 1886}
+    \field{title}{{A cell-centered adaptive projection method for the
   incompressible Navier-Stokes equations in three dimensions}}
-  \field{volume}{227}
-  \field{journaltitle}{Journal of Computational Physics}
-  \field{year}{2008}
-\endentry
+    \field{volume}{227}
+    \field{journaltitle}{Journal of Computational Physics}
+    \field{year}{2008}
+  \endentry
 
-\entry{Worster1991}{article}{}
-  \name{author}{1}{}{%
-    {{}%
-     {Worster}{W.}%
-     {M.~G.}{M.~G.}%
-     {}{}%
-     {}{}}%
-  }
-  \strng{namehash}{WMG1}
-  \strng{fullhash}{WMG1}
-  \verb{doi}
-  \verb 10.1017/S0022112091001787
-  \endverb
-  \field{issn}{0022-1120}
-  \field{number}{-1}
-  \field{pages}{335}
-  \field{title}{{Natural convection in a mushy layer}}
-  \field{volume}{224}
-  \field{journaltitle}{Journal of Fluid Mechanics}
-  \field{year}{1991}
-\endentry
+  \entry{Worster1991}{article}{}
+    \name{author}{1}{}{%
+      {{hash=WMG}{%
+         family={Worster},
+         familyi={W\bibinitperiod},
+         given={M.\bibnamedelima G.},
+         giveni={M\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{WMG1}
+    \strng{fullhash}{WMG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1017/S0022112091001787
+    \endverb
+    \field{issn}{0022-1120}
+    \field{number}{-1}
+    \field{pages}{335}
+    \field{title}{{Natural convection in a mushy layer}}
+    \field{volume}{224}
+    \field{journaltitle}{Journal of Fluid Mechanics}
+    \field{year}{1991}
+  \endentry
 
-\entry{LeBars2006}{article}{}
-  \name{author}{2}{}{%
-    {{}%
-     {Le~Bars}{L.~B.}%
-     {Michael}{M.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Worster}{W.}%
-     {M.~G.}{M.~G.}%
-     {}{}%
-     {}{}}%
-  }
-  \strng{namehash}{LBM+1}
-  \strng{fullhash}{LBMWMG1}
-  \verb{doi}
-  \verb 10.1017/S0022112005007998
-  \endverb
-  \field{isbn}{0022-1120}
-  \field{issn}{0022-1120}
-  \field{number}{-1}
-  \field{pages}{149}
-  \field{title}{{Interfacial conditions between a pure fluid and a porous
+  \entry{LeBars2006}{article}{}
+    \name{author}{2}{}{%
+      {{hash=LBM}{%
+         family={Le\bibnamedelima Bars},
+         familyi={L\bibinitperiod\bibinitdelim B\bibinitperiod},
+         given={Michael},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=WMG}{%
+         family={Worster},
+         familyi={W\bibinitperiod},
+         given={M.\bibnamedelima G.},
+         giveni={M\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LBM+1}
+    \strng{fullhash}{LBMWMG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1017/S0022112005007998
+    \endverb
+    \field{isbn}{0022-1120}
+    \field{issn}{0022-1120}
+    \field{number}{-1}
+    \field{pages}{149}
+    \field{title}{{Interfacial conditions between a pure fluid and a porous
   medium: implications for binary alloy solidification}}
-  \field{volume}{550}
-  \field{journaltitle}{Journal of Fluid Mechanics}
-  \field{year}{2006}
-\endentry
-
-\lossort
-\endlossort
-
+    \field{volume}{550}
+    \field{journaltitle}{Journal of Fluid Mechanics}
+    \field{year}{2006}
+  \endentry
+\enddatalist
 \endinput

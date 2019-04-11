@@ -1,9 +1,10 @@
-This is BibTeX, Version 0.99d (TeX Live 2015)
-Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+This is BibTeX, Version 0.99d (TeX Live 2018)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: EGU2019Poster.aux
 The style file: biblatex.bst
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=20001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
@@ -13,49 +14,51 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: EGU2019Poster-blx.bib
 Database file #2: Mendeley.bib
-Biblatex version: 3.0
-Reallocated singl_function (elt_size=4) to 100 items from 50.
+Biblatex version: 3.11
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
 You've used 6 entries,
-            6047 wiz_defined-function locations,
-            1181 strings with 9426 characters,
-and the built_in function-call counts, 15558 in all, are:
-= -- 540
+            6304 wiz_defined-function locations,
+            1237 strings with 10082 characters,
+and the built_in function-call counts, 33083 in all, are:
+= -- 2430
 > -- 485
 < -- 86
-+ -- 156
++ -- 784
 - -- 184
-* -- 1231
-:= -- 1113
+* -- 2473
+:= -- 3847
 add.period$ -- 0
 call.type$ -- 6
 change.case$ -- 35
 chr.to.int$ -- 34
 cite$ -- 10
-duplicate$ -- 1738
-empty$ -- 1739
-format.name$ -- 333
-if$ -- 3420
+duplicate$ -- 3331
+empty$ -- 3132
+format.name$ -- 319
+if$ -- 6614
 int.to.chr$ -- 0
 int.to.str$ -- 10
 missing$ -- 0
-newline$ -- 183
+newline$ -- 205
 num.names$ -- 190
-pop$ -- 1634
+pop$ -- 1806
 preamble$ -- 1
-purify$ -- 54
+purify$ -- 68
 quote$ -- 0
-skip$ -- 817
+skip$ -- 729
 stack$ -- 0
-substring$ -- 277
-swap$ -- 641
+substring$ -- 4493
+swap$ -- 776
 text.length$ -- 115
 text.prefix$ -- 0
 top$ -- 1
-type$ -- 216
+type$ -- 192
 warning$ -- 0
-while$ -- 133
+while$ -- 527
 width$ -- 0
-write$ -- 176
+write$ -- 200
