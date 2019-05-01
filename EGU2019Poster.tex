@@ -76,6 +76,7 @@
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
 
+
 \usepackage{authblk} %Formatting of author lists
 \usepackage{enumitem} % For different itemize icons
 \usepackage{graphicx,subcaption} % For subfigures
@@ -119,6 +120,12 @@
 
 \usepackage{tikz}
 \usetikzlibrary{calc,positioning,decorations.markings, backgrounds}
+
+% Useful macro for finding out what the current font size is 
+\makeatletter
+\newcommand\thefontsize{{The current font size is: \f@size pt\par}}
+\makeatother
+
 
 \makeatletter
 
@@ -426,6 +433,7 @@ We consider 2-D simulations in a Hele-Shaw cell of width $0.5$m, height $1$m, an
 % End summary
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
 % Nudge content up a bit
 \vspace{-0.1em}
 
@@ -541,6 +549,7 @@ boxrule=0mm, colback=white, colframe=white,  standard jigsaw, opacityback=0]
 \figureTitle{Fig. 6 ($\uparrow$):}  Vertical profiles as in Fig. 5, but for oceanic warming with $T_o=T_f(S_o) + 1.5^\circ$C.  An increase in porosity permits stronger convection through a deeper layer at the base of the ice. However \keyPoint{a convectively stable layer of buoyant melt water forms below the ice, preventing rejected salt from mixing with the underlying ocean except in the case of intense desalination events.}
 \end{minipage}
 
+
 \end{tcolorbox}
 
 
@@ -578,10 +587,16 @@ boxrule=0mm, colback=white, colframe=white,  standard jigsaw, opacityback=0]
 Continuous equations for conservation of momentum (1), mass (2), salt~\eqref{eq:salt-cons} and energy~\eqref{eq:energy-cons} are found by averaging over lengths greater than the pore scale of sea ice \cite{Worster1991,LeBars2006}. In a narrow Hele-Shaw cell, the momentum equation is well approximated by Darcy's law everywhere. 
 \vspace{0.2em}
 \begin{align}
+
+%\mathbf{U} = \frac{K(\chi)}{\eta} \left( \rho_l \mathbf{g} - \nabla p \right), \quad \quad   \nabla \cdot \mathbf{U} &= 0,   \tag*{(1, 2)}\label{eq:mom-mass} \\
+%    \frac{\partial S}{\partial t} + \mathbf{U} \cdot \nabla S_l &= \nabla \cdot \chi D_l \nabla S_l, \label{eq:salt-cons} \tag*{(3)} \\
+%    \frac{\partial H}{\partial t} + \rho_0 \, c_{p,l} \, \mathbf{U} \cdot \nabla  T &= \nabla \cdot \left[ k_l \chi + (1-\chi) k_s \right] \nabla T . \label{eq:energy-cons} \tag*{(4)}
+
 %\rho_0  \frac{\partial \mathbf{U}}{\partial \tau} + \rho_0 \mathbf{U} \cdot \nabla \left( \frac{\mathbf{U}}{\chi} \right) &= - \chi \nabla p + \eta \nabla^2 \mathbf{U} + \chi \rho_l \mathbf{g} - \frac{\eta \chi}{K(\chi)} \mathbf{U},
      \mathbf{U} = -\frac{K(\chi)}{\eta} \left(\nabla p - \rho_l \mathbf{g} \right), & \quad \quad   \nabla \cdot \mathbf{U} = 0, \tag{1, 2}  \\
     \frac{\partial S}{\partial t} + \mathbf{U} \cdot \nabla S_l &= \nabla \cdot \chi D_l \nabla S_l, \label{eq:salt-cons} \tag{3} \\
     \frac{\partial H}{\partial t} + \rho_0 \, c_{p,l} \, \mathbf{U} \cdot \nabla  T &= \nabla \cdot \left[ k_l \chi + (1-\chi) k_s \right] \nabla T . \label{eq:energy-cons} \tag{4}
+
 \end{align} 
 \end{minipage}
 \hfill
@@ -606,6 +621,7 @@ Continuous equations for conservation of momentum (1), mass (2), salt~\eqref{eq:
  
  \block{Future Work}
 {
+
 \begin{itemize}
 \item Consider forcing from reanalysis data, rather than idealised scenarios.
 \item Investigate sensitivity of results to the Hele-Shaw cell gap width.
