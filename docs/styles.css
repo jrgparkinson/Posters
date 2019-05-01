@@ -79,12 +79,14 @@ left:5%;
 position:relative;
 }
 .left-col {
-    width:100%;
+    width:90%;
     float:left;
+    
+    margin-bottom: 25px;
 }
 
 .right-col {
-    width:100%;
+    width:90%;
     float:left;
 }
 
